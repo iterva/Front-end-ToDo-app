@@ -1,0 +1,18 @@
+<h1 style="text-align: center;">Tareas</h1>
+
+<div class="container-btn">
+  <input name="valorTarea" #valorTarea>
+  <button class="btn btn-primary" (click)="saveTarea(valorTarea.value)">añadir</button>
+</div>
+     
+<table class="table table-hover sorteable" >      
+  <tbody>
+    <tr *ngFor="let tarea of tarea;let i=index">
+      <td style="display:none;">{{tarea.id}}<td>
+      <td class="{{(!tarea.isCompleted)?'done':''}}">{{tarea.name}}</td>
+      <td style="color: blue; font-weight: bold;" (click)="edit(valorTarea.value, tarea.id)" >Edit</td>
+      <td style="color: red; font-weight: bold;" (click)="remove(tarea.id)" >X</td>
+    </tr>
+  </tbody>
+</table>
+    
